@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_vit_export_product_wizard" model="ir.actions.act_window">
+            <field name="name">Export Product</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vit.export_product</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="view_vit_export_product_form" model="ir.ui.view">
+            <field name="name">view_vit_export_product_form</field>
+            <field name="model">vit.export_product</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Export Product" version="7.0">
+                    <p>
+                        Klik tombol Export di bawah untuk mulai export data Barang/Jasa.
+                        Data yang diexport adalah Product yang belum diexport ke E-xport.
+                    </p>
+
+                    <p>
+                        Setelah proses export Barang/Jasa selesai dilakukan,
+                        download file:
+                    </p>
+                    <p>
+                        <group>
+                            <field name="export_file" readonly="1" filename="export_filename"/>
+                            <field name="export_filename" invisible="1" />
+                        </group>
+                    </p>
+
+
+                    <p>
+                        Lalu import ke program E-xport melalui menu <b>Referensi - Barang/Jasa - Import</b>
+                    </p>
+
+                    <footer>
+                        <button string="Export" name="confirm_button" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+
+                </form>
+            </field>
+        </record>
+
+        <menuitem id="Export_2" 
+                    name="Export Product"
+                    parent="Export_0"
+                    action="action_vit_export_product_wizard"
+                    sequence="50" />
+
+    </data>
+</odoo>

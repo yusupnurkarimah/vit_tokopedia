@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+        <!-- action window -->
+        <record id="action_vit_export" model="ir.actions.act_window">
+            <field name="name">Import</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vit.export</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add a new Export
+                </p><p>
+                Click the Create button to add a new Export
+                </p>
+            </field>
+        </record>
+
+        <menuitem 
+                    id="Export_0" 
+                    name="Export" 
+                    sequence="20" />
+                    
+		<menuitem id="Export_1" 
+                    name="Import Order"
+                    parent="Export_0"
+                    action="action_vit_export"
+                    sequence="40" />
+        
+    </data>
+</odoo>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="product_tokped" model="ir.ui.view">
+            <field name="name">product.template_tokped</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+
+                <notebook position="inside">
+                    <page string="Tokopedia">
+                        <group>
+                            <group>
+                                <field name="berat" />
+                                <field name="pesan" />
+                                <field name="status" />
+                                <field name="jumlah" />
+                            </group>
+                            <group>
+                                <field name="etalase" />
+                                <field name="preorder" />
+                                <field name="waktu_preorder" />
+                                <field name="kondisi" />
+                            </group>
+                            <group>
+                                <field name="gambar_1"/>
+                                <field name="gambar_2"/>
+                                <field name="gambar_3"/>
+                                <field name="gambar_4"/>
+                                <field name="gambar_5"/>
+                            </group>
+                            <group>
+                                <field name="url_1"/>
+                                <field name="url_2"/>
+                                <field name="url_3"/>
+                            </group>
+                            <group>
+                                <field name="is_exported"/>
+                            </group>
+                            <group>
+                                <field name="date_exported"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</odoo>
