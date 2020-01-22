@@ -38,7 +38,7 @@ class Export(models.Model):
 				all_datas.append(data_row)
 		data = []
 		so = None
-		for x in all_datas:
+		for x in all_datas[4:]:
 			# pdb.set_trace()
 			product_id = self.env['product.product'].sudo().search([('default_code', '=', x[7])])
 			line_so = [(0,0,{
