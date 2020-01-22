@@ -37,20 +37,27 @@ class Export(models.Model):
 					data_row.append(value)
 				all_datas.append(data_row)
 		data = []
+		so = None
 		for x in all_datas:
 			# pdb.set_trace()
-			line_partner = {'name' : x[10],
-							'street' : x[14],
-							'phone': x[11]}
-			partner_id = self.env['res.partner'].sudo().create(line_partner)
 			product_id = self.env['product.product'].sudo().search([('default_code', '=', x[7])])
 			line_so = [(0,0,{
 								'product_id' : product_id.id,
 								'product_uom_qty': 1,
 								'product_uom': product_id.uom_id.id,
 								'price_unit': product_id.lst_price,
-					        })]
-			data_so = {'partner_id' : partner_id.id,
-						'confirmation_date' : time.strftime("%Y-%m-%d"),
-						'order_line' : line_so}
-			so = self.env['sale.order'].sudo().create(data_so)
+							})]
+			if x[0] != '':
+				partner_id = self.env['res.partner'].sudo().search([('name', '=', x[10])])
+				if not partner_id:
+					line_partner = {'name' : x[10],
+									'street' : x[14],
+									'phone': x[11]}
+					partner_id = self.env['res.partner'].sudo().create(line_partner)
+				
+				data_so = {'partner_id' : partner_id.id,
+							'confirmation_date' : time.strftime("%Y-%m-%d"),
+							'order_line' : line_so}
+				so = self.env['sale.order'].sudo().create(data_so)
+			else:
+				so.order_line = line_so

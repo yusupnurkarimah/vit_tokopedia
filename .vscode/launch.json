@@ -1,0 +1,38 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Odoo Arkademy (Linux)",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "console": "integratedTerminal",
+            // "pythonPath": "/usr/bin/python3", // cari dengan which python3
+            "program": "/odoo/odoo-server/odoo-bin",
+            "args": [
+                "--config=/etc/odoo-server.conf",
+                // "--database=tutor1,tutor2",
+                // "--update=nama_folder1,nama_folder2"
+            ]
+        },
+        {
+            "name": "Odoo Arkademy (Windows)",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "console": "integratedTerminal",
+            // Kadang Path Python dari Windows suka error
+            // Jika tidak bisa dengan / maka ganti dengan double-backslash \ \
+            "pythonPath": "C:/Program Files (x86)/Odoo 12.0/python/python.exe", // untuk Odoo 12
+            "program": "C:/Program Files (x86)/Odoo 12.0/server/odoo-bin", // untuk Odoo 12
+            "args": [
+                "--config=C:/Program Files (x86)/Odoo 12.0/server/odoo.conf",
+                // "--database=tutor1,tutor2",
+                // "--update=nama_folder1,nama_folder2"
+            ]
+        }
+    ]
+}
